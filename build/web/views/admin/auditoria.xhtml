@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/templates/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="tituloNavegador">Auditoria</ui:define>
+
+    <ui:define name="banner">
+        <div class="banner-header">
+            <p:commandLink action="/views/admin/datos.xhtml?faces-redirect=true">
+                <center>
+                    <i class="fa fa-info-circle margin-x-5px" aria-hidden="true"></i>
+                    <p:outputLabel value="Usuarios" class="pointer"/>
+                </center>
+            </p:commandLink>  
+            <p:commandLink action="#{login.cerrarSesion()}">
+                <center>
+                    <i class="fa fa-info-circle margin-x-5px" aria-hidden="true"></i>
+                    <p:outputLabel value="Salir" class="pointer"/>
+                </center>
+            </p:commandLink>  
+        </div>
+    </ui:define>
+
+    <ui:define name="contenido">
+        <center>
+            <p:dataTable var="aud" value="#{datosAdminControlador.auditorias}" class="w-60">
+                <f:facet name="header">
+                    AUDITORIA
+                </f:facet>
+                
+                <p:column headerText="Tabla">
+                    <h:outputText value="#{aud.tabla}" />
+                </p:column>
+
+                <p:column headerText="Sentencia">
+                    <h:outputText value="#{aud.sentencia}" />
+                </p:column>
+
+                <p:column headerText="Usuario">
+                    <h:outputText value="#{aud.usuario}" />
+                </p:column>
+
+                <p:column headerText="fecha">
+                    <h:outputText value="#{aud.fecha}" />
+                </p:column>
+            </p:dataTable>
+
+        </center>
+    </ui:define>
+
+</ui:composition>

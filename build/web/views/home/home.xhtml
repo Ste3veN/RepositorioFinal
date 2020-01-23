@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/templates/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="tituloNavegador">Defunciones</ui:define>
+
+    <ui:define name="banner">
+        <div class="banner-header">
+            <p:commandLink action="#{login.cerrarSesion()}">
+                <center>
+                    <i class="fa fa-info-circle margin-x-5px" aria-hidden="true"></i>
+                    <p:outputLabel value="Salir" class="pointer"/>
+                </center>
+            </p:commandLink>  
+            <p:commandLink action="/views/home/info/contrasenia.xhtml?faces-redirect=true" process="@this">
+                <center>
+                    <i class="fa fa-info-circle margin-x-5px" aria-hidden="true"></i>
+                    <p:outputLabel value="Cambiar contraseña" class="pointer"/>
+                </center>
+            </p:commandLink>  
+        </div>
+    </ui:define>
+
+    <ui:define name="contenido">
+        <center>
+            <h:panelGrid columns="2">
+                <p:commandLink action="/views/home/info/informacion.xhtml?faces-redirect=true">
+                    <center>
+                        <p:outputLabel value="Consulta de datos"/>
+                        <br></br>
+                        <i class="fa fa-info-circle fa-10x margin-x-4" aria-hidden="true"></i>
+                    </center>
+                </p:commandLink>  
+                <p:commandLink action="/views/home/info/datos.xhtml?faces-redirect=true">
+                    <center>
+                        <p:outputLabel value="Mis datos"/>
+                        <br></br>
+                        <i class="fa fa-id-card fa-10x margin-x-4" aria-hidden="true"></i>
+                    </center>
+                </p:commandLink>  
+            </h:panelGrid>  
+        </center>
+    </ui:define>
+
+</ui:composition>

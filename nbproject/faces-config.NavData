@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="templates/plantilla.xhtml" x="1010" y="105" zoom="true"/>
+        <Node id="views/index.xhtml" x="105" y="447" zoom="true"/>
+        <Node id="views/home/info/contrasenia.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="views/info/datos.xhtml" x="60" y="297" zoom="true"/>
+        <Node id="views/info/informacion.xhtml" x="629" y="423" zoom="true"/>
+        <Node id="views/info/contrasenia.xhtml" x="743" y="254" zoom="true"/>
+        <Node id="views/home/info/datos.xhtml" x="358" y="494" zoom="true"/>
+        <Node id="views/home/info/informacion.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="views/home/home.xhtml" x="422" y="44" zoom="true"/>
+        <Node id="views/login.xhtml" x="323" y="325" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

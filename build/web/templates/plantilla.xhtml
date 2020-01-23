@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      >
+
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title><ui:insert name="tituloNavegador"/></title>
+    </h:head>
+
+    <h:body>
+
+        <div class="background"></div>
+
+        <h:form id="form">
+            
+            <div class="banner">
+                <p:graphicImage library="images" name="fondo.jpg" />
+                <ui:insert name="banner"/>
+                
+            </div>
+
+            <div class="contenido">
+
+                <ui:insert name="contenido"/>
+
+            </div>
+
+            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+
+            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+            </p:dialog>
+
+        </h:form>
+
+    </h:body>
+
+</html>

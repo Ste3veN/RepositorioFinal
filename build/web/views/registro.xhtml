@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/templates/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="tituloNavegador">Registro de usuario</ui:define>
+
+    <ui:define name="banner">
+    </ui:define>
+
+    <ui:define name="contenido">
+        <center>
+
+            <ui:fragment rendered="#{not empty registro.foto}">
+                <img src="data:image/png;base64,#{registro.foto}" width="170"/>
+            </ui:fragment>
+            <br/>
+            <p:fileUpload fileUploadListener="#{registro.handleFileUpload}" mode="advanced" update="@form"
+                          auto="true" sizeLimit="10000000" allowTypes="/(\.|\/)(jpe?g|png)$/" 
+                          class="w-40"/>
+
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="Cédula"/>
+                <p:inputText id="cedula" label="Cédula" required="true" value="#{registro.usuario.cedula}">
+                    <f:validator validatorId="custom.CedulaValidator"/>
+                </p:inputText>
+
+                <p:outputLabel value="Nombre"/>
+                <p:inputText id="nombre" label="Nombre" required="true" value="#{registro.usuario.nombre}"/>
+
+                <p:outputLabel value="Correo"/>
+                <p:inputText id="correo" label="Correo" required="true" value="#{registro.usuario.correo}"
+                             validatorMessage="El correo ingresado es inválido">
+                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                </p:inputText>
+                
+                
+                <p:outputLabel value="Contraseña"/>
+                <p:inputText id="contr-nuev" label="Contraseña" required="true" maxlength="50"
+                             value="#{registro.contrasenia}" type="password"/>
+
+                <p:outputLabel value="Confirmar contraseña"/>
+                <p:inputText id="contr-conf" label="Confirmar contraseña" required="true" maxlength="50"
+                             value="#{registro.contraseniaConfir}" type="password"/>
+
+
+            </h:panelGrid>  
+
+            <p:messages autoUpdate="true" showDetail="false"/>
+
+            <p:commandButton value="Registrar" process="@form" update="@form" class="margin-x-4"
+                             action="#{registro.registrarUsuario}"/>
+
+            <br/>
+            
+            <p:commandButton value="Regresar" process="@this" class="margin-x-4"
+                             action="/views/index.xhtml?faces-redirect=true" />
+
+        </center>
+        <p:dialog widgetVar="confirm" modal="true" closable="false">
+            <h:outputText value="Se ha creado el usuario correctamente" />
+            <hr/>
+            <p:commandButton action="/views/login.xhtml?faces-redirect=true" value="Aceptar" icon=""/>
+        </p:dialog>
+    </ui:define>
+
+</ui:composition>

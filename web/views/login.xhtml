@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/templates/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="tituloNavegador">Iniciar sesión</ui:define>
+
+    <ui:define name="banner">
+        <div class="banner-header">
+            <p:commandLink action="/views/admin/login.xhtml?faces-redirect=true" process="@this">
+                <center>
+                    <i class="fa fa-sign-in margin-x-5px" aria-hidden="true"></i>
+                    <p:outputLabel value="Administrador" class="pointer"/>
+                </center>
+            </p:commandLink>  
+        </div>
+    </ui:define>
+
+    <ui:define name="contenido">
+        <center>
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="Usuario"/>
+                <p:inputText id="usuario" label="Usuario" required="true" maxlength="100"
+                             value="#{login.usuario}"/>
+
+                <p:outputLabel value="Contraseña"/>
+                <p:password id="contrasenia" label="Contraseña" required="true" maxlength="50"
+                            value="#{login.contrasenia}"/>
+
+            </h:panelGrid>  
+
+            <p:messages autoUpdate="false" showDetail="false"/>
+
+            <p:commandButton value="Iniciar sesion" process="@form" update="@form" class="margin-x-4"
+                             action="#{login.iniciarSesion}"/>
+            <br/>
+            <p:commandButton value="Regresar" process="@this" class="margin-x-4"
+                             action="/views/index.xhtml?faces-redirect=true" />
+
+        </center>
+    </ui:define>
+
+</ui:composition>
